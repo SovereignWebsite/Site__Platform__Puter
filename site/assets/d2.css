@@ -1,6 +1,5 @@
 /* Design 2, Poster: dark first, one claim, one button. */
 :root{--bg:#0e0f0d;--fg:#f4f3ee;--muted:#bdbbb2;--link:#9ee0bd;--line:#34352f;--code:#232420;--panel:#181915;--btn:#f2c14e;--btnfg:#1a1400;--focus:#9ec5f5;--font:system-ui,-apple-system,"Segoe UI",sans-serif}
-@media (prefers-color-scheme:light){:root{--bg:#f7f5ee;--fg:#14130f;--muted:#4a4943;--link:#0f5a3f;--line:#cfcbbc;--code:#ebe8dc;--panel:#efece0;--btn:#14130f;--btnfg:#f7f5ee;--focus:#0b57d0}}
 .d2 main{max-width:52rem;padding-top:1rem}
 .d2 .notice{margin:0 0 1.5rem;border-radius:6px}
 .hero{padding:3rem 0 2rem}.hero h1{font-size:clamp(2.4rem,9vw,4.6rem);line-height:1.02;letter-spacing:-.02em}
@@ -10,3 +9,5 @@
 .top .brand{display:block;margin-bottom:.5rem;color:var(--fg);font-weight:700;text-decoration:none}
 .own ul{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem;list-style:none;margin:0;padding:0}.own a{display:inline-block;min-height:44px;line-height:44px;color:var(--link);font-weight:600}
 .foot{max-width:52rem}
+.d2 .picker{background:#181915;color:#f4f3ee;border-color:#34352f}.d2 .picker summary{color:#f4f3ee}.d2 .picker li a{background:#222319;color:#f4f3ee;border-color:#34352f}.d2 .picker .pick-line,.d2 .picker .pi{color:#c9c7bf}.d2 .picker .all{color:#9ec5f5}.d2 .picker li a[aria-current="page"]{outline-color:#9ee0bd}
+.d2 .notice{background:#1c2a23;color:#cfe8da;border-color:#2f4a3d}

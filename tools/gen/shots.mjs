@@ -20,6 +20,9 @@ for (let n = 1; n <= 5; n++) {
   await p.goto(`http://localhost:8123/designs/d${n}/`); await p.waitForTimeout(300);
   writeFileSync(`site/assets/designs/d${n}.jpg`, await p.screenshot({ type: 'jpeg', quality: 70 }));
   await c.close();
+  const cd = await b.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, colorScheme: 'dark' });
+  const pd = await cd.newPage(); await pd.goto(`http://localhost:8123/designs/d${n}/`); await pd.waitForTimeout(300);
+  writeFileSync(`site/assets/designs/d${n}-dark.jpg`, await pd.screenshot({ type: 'jpeg', quality: 70 })); await cd.close();
 }
 { // the share card: our own screenshot of the recommended design's home page, 1200 x 630
   const c = await b.newContext({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1, colorScheme: 'light' });

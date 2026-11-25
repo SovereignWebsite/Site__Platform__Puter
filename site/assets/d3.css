@@ -8,3 +8,4 @@
 .own a[aria-current]{background:var(--btn);color:var(--btnfg)}
 .side .notice{margin-top:.6rem;border:1px solid var(--line);border-radius:6px;text-align:left}
 @media (min-width:60rem){.shell{display:grid;grid-template-columns:16rem 1fr;min-height:70vh}.side{border-bottom:0;border-right:1px solid var(--line)}.own ul{flex-direction:column}.own a{display:block}main{margin:0 auto 0 2rem}}
+@media (max-width:59.99rem){.own ul{flex-wrap:nowrap;overflow-x:auto;gap:.25rem}.own li{flex:0 0 auto;margin:0}.own a{border:1px solid var(--line);white-space:nowrap;padding:0 .5rem;font-size:.9rem}}

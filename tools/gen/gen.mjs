@@ -81,7 +81,7 @@ const noticeBar = (top) => top ? `<aside class="notice" aria-label="About this g
 const demoScript = (demo) => demo ? '\n<script src="/assets/demo.js"></script>' : '';
 
 // ---- the five layouts: each differs in structure, not only in colour ----
-const flowSvg = `<svg class="flow" viewBox="0 0 360 120" width="360" height="120" role="img" aria-labelledby="flowt"><title id="flowt">The visitor's own Puter account pays; this site pays nothing.</title><rect x="4" y="30" width="90" height="56" rx="8" fill="#ffffff" stroke="#1f5f4a" stroke-width="2"/><text x="49" y="62" text-anchor="middle" font-size="14" fill="#1d1d1b">Visitor</text><rect x="135" y="30" width="90" height="56" rx="8" fill="#ffffff" stroke="#1f5f4a" stroke-width="2"/><text x="180" y="62" text-anchor="middle" font-size="14" fill="#1d1d1b">Puter</text><rect x="266" y="30" width="90" height="56" rx="8" fill="#ffffff" stroke="#1f5f4a" stroke-width="2"/><text x="311" y="62" text-anchor="middle" font-size="14" fill="#1d1d1b">Model</text><path d="M94 58h41M225 58h41" stroke="#1f5f4a" stroke-width="2" fill="none"/><text x="115" y="22" text-anchor="middle" font-size="11" fill="#1d1d1b">signs in</text><text x="180" y="108" text-anchor="middle" font-size="11" fill="#1d1d1b">their allowance pays</text></svg>`;
+const flowSvg = `<svg class="flow" viewBox="0 0 360 124" width="360" height="124" role="img" aria-labelledby="flowt"><title id="flowt">The visitor's own Puter account pays; this site pays nothing.</title><rect x="0" y="0" width="360" height="124" rx="10" fill="#fffdf8"/><rect x="4" y="30" width="90" height="56" rx="8" fill="#ffffff" stroke="#1f5f4a" stroke-width="2"/><text x="49" y="62" text-anchor="middle" font-size="16" fill="#1d1d1b">Visitor</text><rect x="135" y="30" width="90" height="56" rx="8" fill="#ffffff" stroke="#1f5f4a" stroke-width="2"/><text x="180" y="62" text-anchor="middle" font-size="16" fill="#1d1d1b">Puter</text><rect x="266" y="30" width="90" height="56" rx="8" fill="#ffffff" stroke="#1f5f4a" stroke-width="2"/><text x="311" y="62" text-anchor="middle" font-size="16" fill="#1d1d1b">Model</text><path d="M94 58h41M225 58h41" stroke="#1f5f4a" stroke-width="2" fill="none"/><text x="115" y="20" text-anchor="middle" font-size="14" fill="#1d1d1b">signs in</text><text x="180" y="116" text-anchor="middle" font-size="14" fill="#1d1d1b">their allowance pays</text></svg>`;
 
 function homeBody(d, b) {
   const act = `<p class="act"><a class="button" href="${b}${HOME.action.href}">${HOME.action.label}</a></p><p class="actnote">${HOME.actionNote}</p>`;
@@ -91,7 +91,7 @@ function homeBody(d, b) {
   if (d === 2) return `<div class="hero"><p class="kicker">Puter.js, explained</p><h1>${HOME.title}</h1>${act}</div><p class="lede">${HOME.lede}</p><ul class="cards">${three}</ul><p class="honest">${HOME.honest}</p>`;
   if (d === 3) return `<h1>${HOME.title}</h1><p class="lede">${HOME.lede}</p>${act}<ul class="cards">${three}</ul><p class="honest">${HOME.honest}</p>`;
   if (d === 4) return `<h1>${HOME.title}</h1>${flowSvg}${act}<ol class="steps">${steps}</ol><ul class="plainlist">${three}</ul><p class="honest">${HOME.honest}</p>`;
-  return `<h1>${HOME.title}</h1><div class="grid"><section class="panel-a"><h2>What this is</h2><p>${HOME.lede}</p>${act}</section><aside class="panel-b" aria-label="Facts about this page"><h2>This site, as built</h2><dl><dt>Runs on page load</dt><dd>Nothing</dd><dt>Billed to this site</dt><dd>Nothing</dd><dt>Script source</dt><dd>This site (pinned copy)</dd><dt>Cookies, tracking</dt><dd>None</dd></dl></aside></div><ul class="cards">${three}</ul><p class="honest">${HOME.honest}</p>`;
+  return `<h1>${HOME.title}</h1><div class="grid"><aside class="panel-b" aria-label="Facts about this page"><h2>This site, as built</h2><dl><dt>Runs on page load</dt><dd>Nothing</dd><dt>Billed to this site</dt><dd>Nothing</dd><dt>Script source</dt><dd>This site (pinned copy)</dd><dt>Cookies, tracking</dt><dd>None</dd></dl></aside><section class="panel-a"><h2>What this is</h2><p>${HOME.lede}</p>${act}</section></div><ul class="cards">${three}</ul><p class="honest">${HOME.honest}</p>`;
 }
 
 function shell(d, page, live) {
@@ -121,6 +121,7 @@ for (const page of ['', 'guide', 'demo', 'compare']) {
 // ---- /designs/ ----
 {
   const row = DESIGNS.map((d) => `<li><a href="/designs/d${d.n}/"><img src="/assets/designs/d${d.n}.jpg" width="195" height="422" alt="Design ${d.n}, ${d.name}: first phone screen. ${d.idea}"><span>${d.n}. ${d.name}</span></a></li>`).join('');
+  const rowD = DESIGNS.map((d) => `<li><a href="/designs/d${d.n}/"><img src="/assets/designs/d${d.n}-dark.jpg" width="195" height="422" alt="Design ${d.n}, ${d.name}: first phone screen in dark mode"><span>${d.n}. ${d.name}</span></a></li>`).join('');
   const rows = DESIGNS.map((d) => `<tr><th scope="row">${d.n}. ${d.name}</th><td>${d.idea}</td><td>${d.best}</td><td>${d.weak}</td><td>${d.dark}</td></tr>`).join('');
   const page = 'designs';
   PAGES.designs = { title: 'Choose a design', desc: 'Five design directions for this guide, side by side, with the recommendation and the pick.' };
@@ -132,17 +133,20 @@ ${FAMILY}
 <header class="top">${brandA('')}${nav('', '', 'own')}</header>${noticeBar(1)}
 <main id="main"><h1>Choose a design</h1>
 <p class="pick">Not picked yet. The live site uses design 1 meanwhile.</p>
-<p>Five directions for the same content. First screens at 390 by 844 pixels, light, taken ${READ}.</p>
+<p>Five directions for the same content. First screens at 390 by 844 pixels, light, taken ${READ}. <a href="#dark">The same row in dark</a>.</p>
 <div class="rowbox" tabindex="0" role="region" aria-label="The five first screens, scrolls sideways on a phone"><ul class="shots">${row}</ul></div>
+<h2 id="dark">The same five in dark</h2>
+<div class="rowbox" tabindex="0" role="region" aria-label="The five first screens in dark mode, scrolls sideways on a phone"><ul class="shots">${rowD}</ul></div>
 <h2>The five at a glance</h2>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Designs table"><table><caption>Five designs</caption><thead><tr><th scope="col">Design</th><th scope="col">Idea</th><th scope="col">Best for</th><th scope="col">Weakest at</th><th scope="col">Dark first</th></tr></thead><tbody>${rows}</tbody></table></div>
 <h2>Who recommends what</h2>
-<p>Keeper (puter.a), round 1: design 4, Path. It answers the question a visitor arrives with, "who pays?", before any text, and keeps the single action on the first screen. a.design has not reviewed this round yet.</p>
+<p>Keeper (puter.a), round 1: design 4, Path. It answers the question a visitor arrives with, "who pays?", before any text, and keeps the single action on the first screen. a.design (round 1, 25 November 2026) agrees: design 4, Path.</p>
 <h2>How to choose</h2>
 <ol><li>Does the first screen on a phone say what this site is for?</li><li>Can you reach the demo without hunting?</li><li>Would the owner say "wow"?</li></ol>
 <p>Then say which number to keep.</p>
 <h2>Rounds</h2>
-<p><strong>Round 1, ${READ}:</strong> five directions built, with all four pages in each. Review by a.design is next.</p>
+<p><strong>Round 2, ${READ}:</strong> after a.design's round 1 review. Path's drawing labels are now 14 px. Atlas shows one row of navigation. Console shows its facts panel first. Poster is dark in both modes. Console's status band stays dark. A dark row of the five is above.</p>
+<p><strong>Round 1, ${READ}:</strong> five directions built, all four pages in each. Reviewed by a.design, who recommended design 4 and listed five fixes (above).</p>
 </main>${FOOT('')}
 </body>
 </html>
