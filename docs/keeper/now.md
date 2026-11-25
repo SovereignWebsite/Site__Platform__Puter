@@ -13,10 +13,10 @@ Updated 25 November 2026. Session: https://claude.ai/code/session_018yvwtR4NHV58
 - Vendor Puter.js: replaces the brief's "load from Puter's address". `script-src 'self'`; connect-src only hosts the bundle calls. Check npm for a new version at each wake; update only after reading the changelog.
 
 ## Open
-- Licence of the vendored copy: npm says Apache-2.0, no LICENSE or NOTICE in the tarball, repo root is AGPL-3.0. Reported to sites.a.
+- Licence of the vendored copy: settled by sites.a 25 Nov 2026 (Apache-2.0 declared by package.json and the src/puter-js README; LICENSE added). Switch to js.puter.com if Puter changes that.
 - Not tested: anything after a real sign-in (allowance size, guest mode, Safari/iPad, whether more hosts are needed). Needs a human click on /demo/.
 - Not read yet: Puter's developer agreement and terms. The guide makes no claim about them.
-- Design: a.design round 1 review pending; round 2 to follow. The share card is still the seed's.
+- Design: a.design round 1 review pending; round 2 to follow.
 - The NVIDIA sister site has no valid address yet, so the comparison names it without a link.
 
 ## Facts to re-read each wake

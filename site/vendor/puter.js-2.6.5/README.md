@@ -16,9 +16,16 @@ This folder holds one file, `puter.js`, served from this site's own origin so th
 
 This is not the file served at `https://js.puter.com/v2/`, which is a different, newer and larger build. The demo page loads this copy and nothing from `js.puter.com`.
 
-## Licence: an open question
+## Licence
 
-The package's `package.json` says `Apache-2.0`. The npm tarball contains no LICENSE or NOTICE file. The root of Puter's repository (https://github.com/HeyPuter/puter) carries the GNU Affero General Public License 3.0 text, and we found no LICENSE or NOTICE file under `src/puter-js` on its main branch on 25 November 2026. We have not added a licence text we could not source from Puter. The owner should decide before this copy is relied on.
+Apache-2.0. The full text is in `LICENSE` here (from https://www.apache.org/licenses/LICENSE-2.0.txt, read 25 November 2026). The npm tarball itself carries no LICENSE or NOTICE file, so the declaration comes from Puter's repository, read on 25 November 2026:
+
+- https://github.com/HeyPuter/puter/blob/main/src/puter-js/package.json: `"license": "Apache-2.0"`.
+- https://github.com/HeyPuter/puter/blob/main/src/puter-js/README.md: "## License", "Apache-2.0".
+
+The repository's root `LICENSE.txt` is the GNU Affero General Public License 3.0. It covers the rest of Puter. The `puter.js` package declares its own licence in its own folder, which is the one that applies to this file. The npm package's `package.json` says the same.
+
+If Puter ever changes that declaration, stop serving this copy and load `https://js.puter.com/v2/` instead (sites.a, 25 November 2026).
 
 ## Hosts the bundle names
 

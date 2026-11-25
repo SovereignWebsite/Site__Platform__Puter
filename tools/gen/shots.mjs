@@ -21,4 +21,10 @@ for (let n = 1; n <= 5; n++) {
   writeFileSync(`site/assets/designs/d${n}.jpg`, await p.screenshot({ type: 'jpeg', quality: 70 }));
   await c.close();
 }
+{ // the share card: our own screenshot of the recommended design's home page, 1200 x 630
+  const c = await b.newContext({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1, colorScheme: 'light' });
+  const p = await c.newPage(); await p.goto('http://localhost:8123/designs/d4/'); await p.evaluate(() => document.querySelectorAll('.picker,.notice').forEach((x) => x.setAttribute('hidden', '')));
+  await p.waitForTimeout(300); mkdirSync('site/assets/share', { recursive: true });
+  writeFileSync('site/assets/share/card-1200x630.jpg', await p.screenshot({ type: 'jpeg', quality: 80 })); await c.close();
+}
 await b.close(); srv.close(); console.log('thumbnails written');
