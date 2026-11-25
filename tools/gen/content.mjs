@@ -14,6 +14,7 @@ export const SRC = {
   models: [D + '/AI/listModels/', 'Puter docs: ai.listModels()'],
   start: [D + '/getting-started/', 'Puter docs: Getting Started'],
   priv: ['https://puter.com/privacy', "Puter's privacy policy"],
+  dev: ['https://puter.com/developer-agreement', "Puter's App Developer Agreement"],
   repo: ['https://github.com/HeyPuter/puter', "Puter's repository"],
   or: ['https://openrouter.ai/docs/guides/overview/auth/oauth', "OpenRouter's OAuth PKCE guide"],
   nim: ['https://docs.api.nvidia.com/nim/docs/product', "NVIDIA's NIM FAQ"],
@@ -44,7 +45,7 @@ export const HOME = {
 export const GUIDE = `
 <h1>How Puter.js reaches a model from the browser</h1>
 <p class="lede">Every fact below links to Puter's own documents or repository, with the date we read it. Anything we tested ourselves is labelled as ours. Anything Puter does not say is under <a href="#gaps">What is not stated</a>.</p>
-<nav class="toc" aria-label="On this page"><ul><li><a href="#how">How it works</a></li><li><a href="#models">Models and features</a></li><li><a href="#pays">Who pays</a></li><li><a href="#limits">Limits</a></li><li><a href="#privacy">Privacy and permissions</a></li><li><a href="#script">The script itself</a></li><li><a href="#gaps">What is not stated</a></li><li><a href="#bridge">A safer pattern</a></li></ul></nav>
+<nav class="toc" aria-label="On this page"><ul><li><a href="#how">How it works</a></li><li><a href="#models">Models and features</a></li><li><a href="#pays">Who pays</a></li><li><a href="#limits">Limits</a></li><li><a href="#privacy">Privacy and permissions</a></li><li><a href="#agreement">Developer agreement</a></li><li><a href="#script">The script itself</a></li><li><a href="#gaps">What is not stated</a></li><li><a href="#measured">Not measured</a></li><li><a href="#bridge">A safer pattern</a></li></ul></nav>
 
 <section id="how"><h2>How it works</h2>
 <ol>
@@ -107,6 +108,18 @@ export const GUIDE = `
 <p><strong>Tested by us on ${READ}, not stated in Puter's documents.</strong> In a clean headless browser, opening the sign-in window loaded scripts from <code>gui-cdn.puter.com</code>, Sentry, Plausible and Cloudflare Turnstile, and a favicon from Google. That window runs on Puter's own domain, under Puter's own page, not on this site. Our page made no request to any Puter host before the click, and wrote nothing to <code>localStorage</code>.</p>
 </section>
 
+<section id="agreement"><h2>The developer agreement</h2>
+<p>Puter publishes an App Developer Agreement. It covers "the provision of App Developer Services" through Puter's App Developer Center and the distribution of apps (${cite('dev')}). What it says, in its own terms:</p>
+<ul>
+<li>Puter may remove an app from its directory or developer centre "at any time and for any reason".</li>
+<li>The developer sets the price, if any, that end users are charged for an app.</li>
+<li>Fees for the developer services are those on Puter's app-centre page, which Puter "may update from time to time". Changes to the agreement apply when Puter posts them.</li>
+<li>Puter's total liability to a developer is capped at fifty dollars. The developer agrees to indemnify Puter against claims arising from the developer's app.</li>
+<li>Developers must be at least 18. The agreement is governed by the laws of British Columbia, Canada.</li>
+</ul>
+<p>The agreement's text speaks of apps submitted to Puter's directory. It does not say whether it applies to a plain website that only includes Puter.js and is never submitted. We do not know, and we do not say.</p>
+</section>
+
 <section id="script"><h2>The script itself</h2>
 <p>Puter documents loading the script from <code>https://js.puter.com/v2/</code> (${cite('start')}). That address is a floating URL: Puter can change what it serves at any time, and the code runs with full rights on your page. A static page cannot pin it with a subresource integrity hash.</p>
 <p>This site instead serves a pinned copy of the npm package <code>@heyputer/puter.js</code> version 2.6.5 from its own origin, checked against the package's published integrity hash. The page's content security policy then allows scripts from this site only. The record is in the README at <code>site/vendor/puter.js-2.6.5/</code> in <a href="https://github.com/SovereignWebsite/Site__Platform__Puter">this site's repository</a>. A pinned copy is a third-party script by design: we did not write it and we update it only on purpose.</p>
@@ -121,9 +134,21 @@ export const GUIDE = `
 <li>Which company hosts each model upstream of Puter, how long prompts are kept, or whether they are used for training.</li>
 <li>Whether the script can be pinned or checked with an integrity hash. (The npm package can be pinned, as above.)</li>
 <li>How guest accounts behave in practice, or how sign-in behaves on every phone or browser.</li>
-<li>Puter's developer agreement and terms: we have not read them for this site yet, so we make no claim about them.</li>
+<li>Whether Puter's App Developer Agreement applies to a plain website that is not submitted to Puter's directory (see above).</li>
+<li>Puter's general Terms of Service: we have not read them for this site, so we make no claim about them.</li>
 </ul>
 <p>An independent review for this site's owner reports several further details, for example that allowance amounts are in microcents and that Puter.js keeps its sign-in token in the page's <code>localStorage</code>. We have not checked those against Puter's documents, so we do not state them as fact here.</p>
+</section>
+
+<section id="measured"><h2>Not measured</h2>
+<p>This guide and demo were built without completing a real Puter sign-in, so these are open, not answered:</p>
+<ul>
+<li>The size of the free monthly allowance, and what one answer costs from it.</li>
+<li>Whether a fresh guest account can finish a useful task.</li>
+<li>How sign-in behaves in Safari, and on iPhone and iPad.</li>
+<li>Which hosts the page uses after sign-in. The demo's policy allows <code>api.puter.com</code>, its websocket and <code>puter.com</code>; if more are needed the browser's console will name them.</li>
+</ul>
+<p>The <a href="{b}/demo/">demo</a> is built so that a person can find these out with their own account.</p>
 </section>
 
 <section id="bridge"><h2>A safer pattern: keep the script in its own frame</h2>

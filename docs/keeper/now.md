@@ -15,7 +15,7 @@ Updated 25 November 2026. Session: https://claude.ai/code/session_018yvwtR4NHV58
 ## Open
 - Licence of the vendored copy: settled by sites.a 25 Nov 2026 (Apache-2.0 declared by package.json and the src/puter-js README; LICENSE added). Switch to js.puter.com if Puter changes that.
 - Not tested: anything after a real sign-in (allowance size, guest mode, Safari/iPad, whether more hosts are needed). Needs a human click on /demo/.
-- Not read yet: Puter's developer agreement and terms. The guide makes no claim about them.
+- Developer agreement read 25 Nov 2026 and added to the guide (it covers apps submitted to the directory; whether it applies to a plain website is not stated). General Terms of Service not read.
 - Design: round 2 built after a.design round 1 (agrees with 4 Path; five fixes done). Waiting for their round 2 view.
 - The NVIDIA sister site has no valid address yet, so the comparison names it without a link.
 
