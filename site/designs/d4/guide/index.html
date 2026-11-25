@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="light dark">
+<title>How it works, limits and privacy: Puter: LLMs from the browser</title>
+<meta name="description" content="How Puter.js reaches a language model from the browser: sign-in, the user-pays model, limits, privacy and what Puter does not state. Every fact links to Puter's docs.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Puter: LLMs from the browser">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://puter.platform.sovereignweb.site/designs/d4/guide/">
+<meta property="og:title" content="How it works, limits and privacy: Puter: LLMs from the browser">
+<meta property="og:description" content="How Puter.js reaches a language model from the browser: sign-in, the user-pays model, limits, privacy and what Puter does not state. Every fact links to Puter's docs.">
+<meta property="og:image" content="https://puter.platform.sovereignweb.site/assets/share/card-1200x630.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Puter: LLMs from the browser">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How it works, limits and privacy: Puter: LLMs from the browser">
+<meta name="twitter:description" content="How Puter.js reaches a language model from the browser: sign-in, the user-pays model, limits, privacy and what Puter does not state. Every fact links to Puter's docs.">
+<meta name="twitter:image" content="https://puter.platform.sovereignweb.site/assets/share/card-1200x630.jpg">
+<link rel="canonical" href="https://puter.platform.sovereignweb.site/guide/">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="/assets/family.css">
+<link rel="stylesheet" href="/assets/picker.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/d4.css">
+</head>
+<body class="d4 p-guide">
+<a class="skip" href="#main">Skip to content</a>
+<details class="picker"><summary>Choose a design</summary><div class="panel"><p class="pick-line">Not picked yet. The live site uses design 1 meanwhile.</p><ul><li><a href="/designs/d1/guide/"><img src="/assets/designs/d1.jpg" width="90" height="195" alt="Design 1, Ledger: A plain, printable document: one column, headings, links."><span class="pn">1. Ledger <em>(live)</em></span><span class="pi">A plain, printable document: one column, headings, links.</span></a></li><li><a href="/designs/d2/guide/"><img src="/assets/designs/d2.jpg" width="90" height="195" alt="Design 2, Poster: Dark first: one big claim and one big button."><span class="pn">2. Poster</span><span class="pi">Dark first: one big claim and one big button.</span></a></li><li><a href="/designs/d3/guide/"><img src="/assets/designs/d3.jpg" width="90" height="195" alt="Design 3, Atlas: A map of the topic: side navigation, three entry cards."><span class="pn">3. Atlas</span><span class="pi">A map of the topic: side navigation, three entry cards.</span></a></li><li><a href="/designs/d4/guide/" aria-current="page"><img src="/assets/designs/d4.jpg" width="90" height="195" alt="Design 4, Path: A three-step journey drawn as a flow: visitor, Puter, model."><span class="pn">4. Path</span><span class="pi">A three-step journey drawn as a flow: visitor, Puter, model.</span></a></li><li><a href="/designs/d5/guide/"><img src="/assets/designs/d5.jpg" width="90" height="195" alt="Design 5, Console: A status panel first: what runs on load, what is allowed."><span class="pn">5. Console</span><span class="pi">A status panel first: what runs on load, what is allowed.</span></a></li></ul><p><a class="all" href="/designs/">Compare all designs</a></p></div></details>
+<details class="family-credit">
+  <summary>Sovereign Website</summary>
+  <ul>
+    <li><a href="/start/">Start here</a></li>
+    <li><a href="/agents/">Use with your AI</a></li>
+    <li class="family-gap"><a href="/admin/">How this site was made</a></li>
+    <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+    <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+    <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
+    <li><a href="https://hub.sovereignweb.site/">Hub</a></li>
+    <li><a href="https://agents.sovereignweb.site/">Agents</a></li>
+    <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+    <li><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+    <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+    <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+  </ul>
+</details>
+
+<header class="top"><a class="brand" href="/designs/d4/">Puter: LLMs from the browser</a></header><nav class="own" aria-label="This site"><ul><li><a href="/designs/d4/">Home</a></li><li><a href="/designs/d4/guide/" aria-current="page">Guide</a></li><li><a href="/designs/d4/demo/">Demo</a></li><li><a href="/designs/d4/compare/">Compare</a></li><li><a href="/start/">Start here</a></li></ul></nav><aside class="notice" aria-label="About this guide">An independent Sovereign Website guide. Not Puter's site.</aside><main id="main">
+<h1>How Puter.js reaches a model from the browser</h1>
+<p class="lede">Every fact below links to Puter's own documents or repository, with the date we read it. Anything we tested ourselves is labelled as ours. Anything Puter does not say is under <a href="#gaps">What is not stated</a>.</p>
+<nav class="toc" aria-label="On this page"><ul><li><a href="#how">How it works</a></li><li><a href="#models">Models and features</a></li><li><a href="#pays">Who pays</a></li><li><a href="#limits">Limits</a></li><li><a href="#privacy">Privacy and permissions</a></li><li><a href="#script">The script itself</a></li><li><a href="#gaps">What is not stated</a></li><li><a href="#bridge">A safer pattern</a></li></ul></nav>
+
+<section id="how"><h2>How it works</h2>
+<ol>
+<li>The page includes Puter.js. Puter documents a script tag and an npm package, <code>@heyputer/puter.js</code> (<a class="src" href="https://docs.puter.com/getting-started/">Puter docs: Getting Started</a>, read 25 November 2026).</li>
+<li>When the code first needs a cloud service, the visitor is asked to sign in with their Puter account. If they are already signed in, they are not asked again (<a class="src" href="https://docs.puter.com/security/">Puter docs: Security and Permissions</a>, read 25 November 2026).</li>
+<li>Sign-in opens a pop-up window. It must be triggered by a user action such as a click, because browsers block pop-ups that are not (<a class="src" href="https://docs.puter.com/Auth/signIn/">Puter docs: auth.signIn()</a>, read 25 November 2026).</li>
+<li>Once signed in, <code>puter.ai.chat(prompt)</code> returns a completion. The model is chosen with the <code>model</code> option (<a class="src" href="https://docs.puter.com/AI/chat/">Puter docs: ai.chat()</a>, read 25 November 2026).</li>
+</ol>
+<p>There is no API key in the page and no backend of ours. Puter says the same of its own model: "No API keys at all" (<a class="src" href="https://docs.puter.com/user-pays-model/">Puter docs: User-Pays Model</a>, read 25 November 2026).</p>
+<h3>Guest accounts</h3>
+<p>The sign-in call has an option, <code>attempt_temp_user_creation</code>, that lets Puter create a temporary user so a visitor can start without signing up. "They can always sign up later" (<a class="src" href="https://docs.puter.com/Auth/signIn/">Puter docs: auth.signIn()</a>, read 25 November 2026). Puter's rate limits give guests ("anonymous" accounts) their own, lower numbers (<a class="src" href="https://docs.puter.com/rate-limits-and-quotas/">Puter docs: Rate Limits and Quotas</a>, read 25 November 2026). Whether a fresh guest can finish a useful task is not something Puter's documents answer, and we have not measured it.</p>
+</section>
+
+<section id="models"><h2>Models and features</h2>
+<ul>
+<li>If no model is named, <code>ai.chat()</code> defaults to <code>gpt-5.4-nano</code>. Puter says more than 500 models are available from providers including OpenAI, Anthropic, Google, Alibaba Cloud, xAI, Mistral and OpenRouter (<a class="src" href="https://docs.puter.com/AI/chat/">Puter docs: ai.chat()</a>, read 25 November 2026).</li>
+<li><code>puter.ai.listModels()</code> returns the models available to the app, with pricing and capability metadata where available. Each has an <code>id</code> and a <code>provider</code> (<a class="src" href="https://docs.puter.com/AI/listModels/">Puter docs: ai.listModels()</a>, read 25 November 2026).</li>
+<li>Options Puter lists for chat include <code>stream</code>, <code>max_tokens</code>, <code>temperature</code> and <code>reasoning_effort</code> (<a class="src" href="https://docs.puter.com/AI/chat/">Puter docs: ai.chat()</a>, read 25 November 2026).</li>
+<li>The same AI budget is shared by chat, images, video, text to speech, speech to text and OCR (<a class="src" href="https://docs.puter.com/rate-limits-and-quotas/">Puter docs: Rate Limits and Quotas</a>, read 25 November 2026).</li>
+</ul>
+<p>Model lists and prices change. This guide does not copy a list; ask <code>listModels()</code> or Puter's model directory for the current one.</p>
+</section>
+
+<section id="pays"><h2>Who pays</h2>
+<ul>
+<li>Under Puter's User-Pays Model, users cover their own cloud and AI usage through their own Puter account. The developer's usage never mixes with theirs (<a class="src" href="https://docs.puter.com/user-pays-model/">Puter docs: User-Pays Model</a>, read 25 November 2026).</li>
+<li>Every user starts with a free monthly allowance. If it runs out, Puter prompts them to upgrade, or they can do it in their billing settings (<a class="src" href="https://docs.puter.com/user-pays-model/">Puter docs: User-Pays Model</a>, read 25 November 2026).</li>
+<li>The allowance resets monthly and does not roll over. Purchased credits never expire and are spent after the allowance runs out (<a class="src" href="https://docs.puter.com/rate-limits-and-quotas/">Puter docs: Rate Limits and Quotas</a>, read 25 November 2026).</li>
+<li>AI is "priced per model" and charged "at real cost". Rates can change (<a class="src" href="https://docs.puter.com/rate-limits-and-quotas/">Puter docs: Rate Limits and Quotas</a>, read 25 November 2026).</li>
+<li>A request that produced no output is free. A stream that stops early is charged on an estimate of what was streamed (<a class="src" href="https://docs.puter.com/rate-limits-and-quotas/">Puter docs: Rate Limits and Quotas</a>, read 25 November 2026).</li>
+<li><code>puter.auth.getMonthlyUsage()</code> returns the user's monthly usage. Called from an app, <code>usage</code> and <code>appTotals</code> cover only that app, while <code>allowanceInfo</code> covers the whole account (<a class="src" href="https://docs.puter.com/Auth/getMonthlyUsage/">Puter docs: auth.getMonthlyUsage()</a>, read 25 November 2026). The <a href="/designs/d4/demo/">demo</a> can show your own result.</li>
+</ul>
+<p>Puter's docs describe the arrangement as users paying for their own usage. This site therefore does not describe the service as free for visitors.</p>
+</section>
+
+<section id="limits"><h2>Limits</h2>
+<table><caption>AI request limits, per user and per app (<a class="src" href="https://docs.puter.com/rate-limits-and-quotas/">Puter docs: Rate Limits and Quotas</a>, read 25 November 2026)</caption>
+<thead><tr><th scope="col">Limit</th><th scope="col">Paid</th><th scope="col">Free</th><th scope="col">Guest</th></tr></thead>
+<tbody><tr><th scope="row">Requests per 10 seconds</th><td>200</td><td>30</td><td>20</td></tr>
+<tr><th scope="row">Concurrent requests</th><td>20</td><td>3</td><td>2</td></tr></tbody></table>
+<ul>
+<li>A chat completion counts as concurrent until the model finishes, even if the page disconnects, for up to 10 minutes (<a class="src" href="https://docs.puter.com/rate-limits-and-quotas/">Puter docs: Rate Limits and Quotas</a>, read 25 November 2026).</li>
+<li>Three independent checks can stop a request: usage credit (<code>402 insufficient_funds</code>), rate limit (<code>429 too_many_requests</code>) and storage quota (<code>413</code>) (<a class="src" href="https://docs.puter.com/rate-limits-and-quotas/">Puter docs: Rate Limits and Quotas</a>, read 25 November 2026).</li>
+<li>Several expensive requests started together reserve their maximum cost first, so later ones can fail with <code>402</code> even when the month's allowance is not spent (<a class="src" href="https://docs.puter.com/rate-limits-and-quotas/">Puter docs: Rate Limits and Quotas</a>, read 25 November 2026). Interfaces should not tell users "you have run out" on a <code>402</code> alone.</li>
+<li>Limits include inputs: an image inlined in a chat message is capped at 5 MB, for example (<a class="src" href="https://docs.puter.com/rate-limits-and-quotas/">Puter docs: Rate Limits and Quotas</a>, read 25 November 2026).</li>
+</ul>
+</section>
+
+<section id="privacy"><h2>Privacy and permissions</h2>
+<h3>What signing in gives the page</h3>
+<p>After sign-in an app gets, by default: a folder in the user's cloud storage, its own key-value store, the AI services, and the ability to "create and publish websites on the user's behalf" (<a class="src" href="https://docs.puter.com/security/">Puter docs: Security and Permissions</a>, read 25 November 2026). An AI button needs only the third. Tell users the rest.</p>
+<h3>What Puter's privacy policy says</h3>
+<ul>
+<li>Its effective date is 18 July 2022 (<a class="src" href="https://puter.com/privacy">Puter's privacy policy</a>, read 25 November 2026).</li>
+<li>Data may be stored, processed and transmitted "in Canada and locations around the world", including outside the user's country (<a class="src" href="https://puter.com/privacy">Puter's privacy policy</a>, read 25 November 2026).</li>
+<li>Puter uses cookies and similar technologies, and uses third parties for hosting, analytics, customer care, marketing, advertising and payments (<a class="src" href="https://puter.com/privacy">Puter's privacy policy</a>, read 25 November 2026).</li>
+<li><strong>Ours, not Puter's:</strong> we searched the policy text on 25 November 2026 for "AI", "artificial" and "model" and found no match. The policy as published does not address prompts, model providers or training.</li>
+</ul>
+<h3>What we saw when the sign-in window opened</h3>
+<p><strong>Tested by us on 25 November 2026, not stated in Puter's documents.</strong> In a clean headless browser, opening the sign-in window loaded scripts from <code>gui-cdn.puter.com</code>, Sentry, Plausible and Cloudflare Turnstile, and a favicon from Google. That window runs on Puter's own domain, under Puter's own page, not on this site. Our page made no request to any Puter host before the click, and wrote nothing to <code>localStorage</code>.</p>
+</section>
+
+<section id="script"><h2>The script itself</h2>
+<p>Puter documents loading the script from <code>https://js.puter.com/v2/</code> (<a class="src" href="https://docs.puter.com/getting-started/">Puter docs: Getting Started</a>, read 25 November 2026). That address is a floating URL: Puter can change what it serves at any time, and the code runs with full rights on your page. A static page cannot pin it with a subresource integrity hash.</p>
+<p>This site instead serves a pinned copy of the npm package <code>@heyputer/puter.js</code> version 2.6.5 from its own origin, checked against the package's published integrity hash. The page's content security policy then allows scripts from this site only. The record is in the README at <code>site/vendor/puter.js-2.6.5/</code> in <a href="https://github.com/SovereignWebsite/Site__Platform__Puter">this site's repository</a>. A pinned copy is a third-party script by design: we did not write it and we update it only on purpose.</p>
+<p>The hosts the demo's policy allows besides this site are <code>api.puter.com</code> (the API) and <code>puter.com</code> (sign-in). We found the bundle names these hosts by searching its code and by running it; the full list, and what we have not tested after sign-in, is in the README.</p>
+</section>
+
+<section id="gaps"><h2>What is not stated</h2>
+<p>Puter's documents we read on 25 November 2026 do not say:</p>
+<ul>
+<li>How large the free monthly allowance is. The docs say it is "shown in the dashboard".</li>
+<li>Which sign-in providers exist. Google is mentioned as an example only (<a class="src" href="https://docs.puter.com/Auth/signIn/">Puter docs: auth.signIn()</a>, read 25 November 2026).</li>
+<li>Which company hosts each model upstream of Puter, how long prompts are kept, or whether they are used for training.</li>
+<li>Whether the script can be pinned or checked with an integrity hash. (The npm package can be pinned, as above.)</li>
+<li>How guest accounts behave in practice, or how sign-in behaves on every phone or browser.</li>
+<li>Puter's developer agreement and terms: we have not read them for this site yet, so we make no claim about them.</li>
+</ul>
+<p>An independent review for this site's owner reports several further details, for example that allowance amounts are in microcents and that Puter.js keeps its sign-in token in the page's <code>localStorage</code>. We have not checked those against Puter's documents, so we do not state them as fact here.</p>
+</section>
+
+<section id="bridge"><h2>A safer pattern: keep the script in its own frame</h2>
+<p>If a page holds anything private, such as keys or other people's data, put Puter.js in a small page on a separate origin, embed it in a sandboxed iframe, and pass only the prompt text in and the answer out with <code>postMessage</code>, checking <code>event.origin</code> each way. The sign-in button then lives inside that frame, so the user's click opens the pop-up. This site does not do this: it needs a host of its own, and the demo holds no private data. We describe it as a pattern, not as something we have tested.</p>
+</section>
+</main><footer class="foot"><p class="notice-foot">An independent Sovereign Website guide. Not Puter's site.</p><p>A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__Platform__Puter">github.com/SovereignWebsite/Site__Platform__Puter</a>. <a href="/start/">Start here</a> · <a href="/agents/">Use with your AI</a> · <a href="/admin/">How this site was made</a> · <a href="/policy/">How this site is governed</a></p></footer>
+</body>
+</html>

@@ -1,0 +1,18 @@
+/* Choose a design: at the top of every page while a pick is open (a.design's standard). Plain look without any other stylesheet. */
+.picker{position:relative;z-index:60;background:#f1efe8;color:#1d1d1b;border-bottom:1px solid #cfcbbf;font:15px/1.4 system-ui,-apple-system,Segoe UI,sans-serif}
+.picker summary{display:block;cursor:pointer;padding:.6rem 1rem;min-height:44px;font-weight:600;color:#1d1d1b}
+.picker summary:focus-visible,.picker a:focus-visible{outline:3px solid #0b57d0;outline-offset:2px}
+.picker .panel{padding:.25rem 1rem 1rem;max-height:80vh;overflow:auto}
+.picker .pick-line{margin:.2rem 0 .8rem;color:#3d3c37}
+.picker ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem}
+@media (min-width:44rem){.picker ul{grid-template-columns:repeat(5,1fr)}}
+.picker li a{display:flex;flex-direction:column;gap:.25rem;min-height:44px;padding:.5rem;border:1px solid #cfcbbf;border-radius:8px;background:#fff;color:#1d1d1b;text-decoration:none;height:100%}
+.picker li a[aria-current="page"]{outline:3px solid #1f5f4a;outline-offset:-1px}
+.picker img{width:90px;height:195px;object-fit:cover;object-position:top;border:1px solid #cfcbbf;background:#ddd;align-self:center}
+.picker .pn{font-weight:700}.picker .pi{font-size:.85rem;color:#3d3c37}
+.picker .all{display:inline-block;min-height:44px;padding:.6rem 0;color:#0b4a8f;font-weight:600}
+@media (prefers-color-scheme:dark){.picker{background:#1b1c19;color:#ecebe6;border-color:#3a3b36}.picker summary{color:#ecebe6}.picker li a{background:#242621;color:#ecebe6;border-color:#3a3b36}.picker .pick-line,.picker .pi{color:#c9c7bf}.picker .all{color:#9ec5f5}.picker li a[aria-current="page"]{outline-color:#7fc3a0}}
+.notice{margin:0;padding:.45rem 1rem;font:14px/1.4 system-ui,-apple-system,Segoe UI,sans-serif;background:#e6efe9;color:#14352a;border-bottom:1px solid #b9cfc3;text-align:center}
+@media (prefers-color-scheme:dark){.notice{background:#1c2a23;color:#cfe8da;border-color:#2f4a3d}}
+@media print{.picker{display:none}}
+@media (max-width:599px){.picker .pi{font-size:15px}.notice{font-size:15px}}

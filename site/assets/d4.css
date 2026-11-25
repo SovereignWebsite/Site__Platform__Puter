@@ -1,0 +1,11 @@
+/* Design 4, Path: a journey drawn as a flow. */
+:root{--bg:#fffdf8;--fg:#1c1b17;--muted:#56544c;--link:#7a3b00;--line:#e3dccb;--code:#f3eedf;--panel:#fbf5e6;--btn:#1f5f4a;--btnfg:#fff;--focus:#0b57d0;--font:"Trebuchet MS",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#171510;--fg:#f1ede2;--muted:#bdb8a8;--link:#f0b97a;--line:#38342a;--code:#241f17;--panel:#201c14;--btn:#8fd0ad;--btnfg:#10231a;--focus:#9ec5f5}}
+.top{text-align:center;padding:1.6rem 1rem .4rem}.brand{font-weight:700;color:var(--fg);text-decoration:none;font-size:1.1rem}
+.own{text-align:center;padding:0 .5rem}.own ul{display:flex;justify-content:center;flex-wrap:wrap;gap:.2rem .8rem;list-style:none;margin:0;padding:0}.own a{display:inline-block;min-height:44px;line-height:44px;color:var(--link);font-weight:600}
+.flow{display:block;margin:1rem auto;max-width:100%;height:auto}
+.steps{list-style:none;padding:0;margin:1rem 0;counter-reset:s;border-left:4px solid var(--btn);margin-left:1rem}
+.steps li{display:flex;gap:1rem;align-items:flex-start;padding:.2rem 0 1.2rem 1rem;position:relative;margin:0}
+.steps .num{flex:0 0 2.2rem;height:2.2rem;line-height:2.2rem;text-align:center;border-radius:50%;background:var(--btn);color:var(--btnfg);font-weight:800;margin-left:-2.1rem}
+.steps h2{margin:0;font-size:1.2rem}.steps p{margin:.2rem 0 0}
+.d4 .act{text-align:center}.d4 .actnote{text-align:center}

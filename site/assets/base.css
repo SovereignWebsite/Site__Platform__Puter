@@ -1,0 +1,44 @@
+/* Shared by all five designs: colour tokens are set by each design's own file. */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.6 var(--font,system-ui,-apple-system,Segoe UI,sans-serif)}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;z-index:99;background:var(--bg);color:var(--fg);padding:.5rem}
+a{color:var(--link)}a:focus-visible,button:focus-visible,textarea:focus-visible,input:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+main{max-width:46rem;margin:0 auto;padding:2rem 1rem 3rem}
+h1{font-size:clamp(1.9rem,6vw,2.8rem);line-height:1.12;margin:.3rem 0 1rem}
+h2{font-size:1.35rem;margin:2.2rem 0 .6rem}h3{font-size:1.1rem;margin:1.5rem 0 .4rem}
+.h3{font-size:1.1rem;margin:0 0 .5rem}
+p,li{color:var(--fg)}.lede{font-size:1.15rem;color:var(--fg)}
+ul,ol{padding-left:1.3rem}li{margin:.35rem 0}
+code{font-size:.9em;background:var(--code);padding:.05rem .3rem;border-radius:4px;overflow-wrap:anywhere}
+main a{overflow-wrap:anywhere}
+.button{display:inline-block;min-height:44px;padding:.65rem 1.3rem;border-radius:8px;background:var(--btn);color:var(--btnfg);font-weight:700;text-decoration:none;border:2px solid var(--btn)}
+.button:hover{filter:brightness(1.1)}
+button{font:inherit;min-height:44px;padding:.5rem 1.1rem;border-radius:8px;border:2px solid var(--btn);background:var(--btn);color:var(--btnfg);font-weight:700;cursor:pointer}
+button:disabled{opacity:.55;cursor:not-allowed}
+.actnote,.honest{color:var(--muted);font-size:.95rem}
+.notice-foot{font-weight:600}
+.foot{max-width:46rem;margin:0 auto;padding:1.2rem 1rem 2rem;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted)}
+.foot p{color:var(--muted)}
+.table-wrap{overflow-x:auto;margin:1rem 0}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+caption{text-align:left;font-weight:700;padding:.4rem 0;color:var(--fg)}
+th,td{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}
+thead th{background:var(--code)}
+.toc ul{display:flex;flex-wrap:wrap;gap:.3rem 1.2rem;list-style:none;padding:0}
+.toc a{display:inline-block;min-height:24px}
+.src{overflow-wrap:anywhere}
+.notebox{border:2px solid var(--line);border-radius:10px;padding:1rem 1.2rem;margin:1.2rem 0;background:var(--panel)}
+.demo{border:1px solid var(--line);border-radius:10px;padding:1rem 1.2rem;background:var(--panel)}
+.demo textarea{width:100%;max-width:100%;font:inherit;padding:.5rem;background:var(--bg);color:var(--fg);border:1px solid var(--muted);border-radius:6px}
+.demo .n{display:inline-block;width:1.7rem;height:1.7rem;line-height:1.7rem;text-align:center;border-radius:50%;background:var(--btn);color:var(--btnfg);font-weight:700;margin-right:.4rem}
+#out{margin-top:1rem;padding:.7rem 1rem;border-left:4px solid var(--btn);background:var(--bg)}
+#out pre{white-space:pre-wrap;overflow-wrap:anywhere;margin:0;font-size:.9rem}
+.rowbox{overflow-x:auto}.shots{display:flex;gap:1rem;list-style:none;padding:0}
+.shots li{flex:0 0 auto}.shots a{display:block;color:var(--link)}.shots img{display:block;border:1px solid var(--line);background:#ddd}
+.pick{font-weight:700}
+.plainlist{list-style:none;padding:0}.plainlist a{display:block;padding:.6rem .8rem;border:1px solid var(--line);border-radius:8px;margin:.4rem 0;text-decoration:none;color:var(--fg)}.plainlist a strong{display:block;color:var(--link)}
+.cards{list-style:none;padding:0;display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
+.cards a{display:block;height:100%;padding:1rem;border:1px solid var(--line);border-radius:10px;background:var(--panel);text-decoration:none;color:var(--fg)}.cards a strong{display:block;color:var(--link);margin-bottom:.3rem}
+@media (max-width:599px){.foot,.actnote,.honest{font-size:15px}table{font-size:15px}}
+@media print{.skip,.button{display:none}body{background:#fff;color:#000}}

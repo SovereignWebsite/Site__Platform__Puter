@@ -1,0 +1,10 @@
+/* Design 3, Atlas: side navigation and entry cards. */
+:root{--bg:#f6f8fb;--fg:#17202b;--muted:#4b5767;--link:#0b4a8f;--line:#cdd6e2;--code:#e8edf4;--panel:#fff;--btn:#0b4a8f;--btnfg:#fff;--focus:#c44900;--font:system-ui,-apple-system,"Segoe UI",sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#10151c;--fg:#e8edf4;--muted:#aab6c6;--link:#9ec5f5;--line:#2a3544;--code:#1c2430;--panel:#171e28;--btn:#9ec5f5;--btnfg:#0b1a2b;--focus:#ffb27a}}
+.shell{display:block}
+.side{padding:1rem;border-bottom:1px solid var(--line);background:var(--panel)}
+.side .brand{display:block;font-weight:800;color:var(--fg);text-decoration:none;margin-bottom:.5rem}
+.own ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.2rem .5rem}.own a{display:inline-block;min-height:44px;line-height:44px;padding:0 .7rem;border-radius:6px;text-decoration:none;color:var(--link);font-weight:600}
+.own a[aria-current]{background:var(--btn);color:var(--btnfg)}
+.side .notice{margin-top:.6rem;border:1px solid var(--line);border-radius:6px;text-align:left}
+@media (min-width:60rem){.shell{display:grid;grid-template-columns:16rem 1fr;min-height:70vh}.side{border-bottom:0;border-right:1px solid var(--line)}.own ul{flex-direction:column}.own a{display:block}main{margin:0 auto 0 2rem}}

@@ -1,0 +1,12 @@
+/* Design 5, Console: a status panel first. */
+:root{--bg:#eef0f2;--fg:#15181c;--muted:#454c55;--link:#0a5a8a;--line:#c3c9d1;--code:#dfe3e8;--panel:#fff;--btn:#12263a;--btnfg:#fff;--focus:#c44900;--font:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1317;--fg:#dfe6ee;--muted:#a3adba;--link:#7fc8f5;--line:#2a323c;--code:#1b222a;--panel:#151b21;--btn:#7fc8f5;--btnfg:#07131d;--focus:#ffb27a}}
+body{font-size:16px}
+.top{display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;align-items:center;max-width:62rem;margin:0 auto;padding:1rem}.brand{font-weight:700;color:var(--fg);text-decoration:none}
+.own ul{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem;list-style:none;margin:0;padding:0}.own a{display:inline-block;min-height:24px;color:var(--link)}
+.statusbar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.3rem 1rem;padding:.4rem 1rem;background:var(--btn);color:var(--btnfg);font-size:.85rem}
+.d5 main{max-width:62rem}
+.grid{display:grid;gap:1rem}@media (min-width:46rem){.grid{grid-template-columns:2fr 1fr}}
+.panel-a,.panel-b{border:1px solid var(--line);background:var(--panel);padding:1rem 1.2rem;border-radius:6px}
+.panel-a h2,.panel-b h2{margin-top:0}
+dl{margin:0}dt{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:.6rem}dd{margin:0;font-weight:700}

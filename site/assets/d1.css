@@ -1,0 +1,7 @@
+/* Design 1, Ledger: a plain, printable document. */
+:root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#55544f;--link:#1f5f4a;--line:#d9d5c8;--code:#eeece4;--panel:#f4f2ea;--btn:#1f5f4a;--btnfg:#fff;--focus:#0b57d0;--font:Georgia,"Times New Roman",serif}
+@media (prefers-color-scheme:dark){:root{--bg:#141513;--fg:#ecebe6;--muted:#b3b1a8;--link:#8fd0ad;--line:#33342f;--code:#23241f;--panel:#1b1c19;--btn:#8fd0ad;--btnfg:#10231a;--focus:#9ec5f5}}
+.top{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;align-items:center;max-width:46rem;margin:0 auto;padding:2.2rem 1rem 0}
+.brand{font-weight:700;color:var(--fg);text-decoration:none}
+.own ul{display:flex;flex-wrap:wrap;gap:.3rem 1.2rem;list-style:none;margin:0;padding:0}.own a{display:inline-block;min-height:24px;font-weight:600;color:var(--link)}
+.own a[aria-current]{text-decoration:underline}

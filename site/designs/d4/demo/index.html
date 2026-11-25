@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src https://api.puter.com wss://api.puter.com; frame-src https://puter.com; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="light dark">
+<title>Demo: ask a model with your own Puter account: Puter: LLMs from the browser</title>
+<meta name="description" content="A static demo that loads Puter.js only when you press a button and bills your own Puter allowance, not this site.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Puter: LLMs from the browser">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://puter.platform.sovereignweb.site/designs/d4/demo/">
+<meta property="og:title" content="Demo: ask a model with your own Puter account: Puter: LLMs from the browser">
+<meta property="og:description" content="A static demo that loads Puter.js only when you press a button and bills your own Puter allowance, not this site.">
+<meta property="og:image" content="https://puter.platform.sovereignweb.site/assets/share/card-1200x630.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Puter: LLMs from the browser">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Demo: ask a model with your own Puter account: Puter: LLMs from the browser">
+<meta name="twitter:description" content="A static demo that loads Puter.js only when you press a button and bills your own Puter allowance, not this site.">
+<meta name="twitter:image" content="https://puter.platform.sovereignweb.site/assets/share/card-1200x630.jpg">
+<link rel="canonical" href="https://puter.platform.sovereignweb.site/demo/">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="/assets/family.css">
+<link rel="stylesheet" href="/assets/picker.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/d4.css">
+</head>
+<body class="d4 p-demo">
+<a class="skip" href="#main">Skip to content</a>
+<details class="picker"><summary>Choose a design</summary><div class="panel"><p class="pick-line">Not picked yet. The live site uses design 1 meanwhile.</p><ul><li><a href="/designs/d1/demo/"><img src="/assets/designs/d1.jpg" width="90" height="195" alt="Design 1, Ledger: A plain, printable document: one column, headings, links."><span class="pn">1. Ledger <em>(live)</em></span><span class="pi">A plain, printable document: one column, headings, links.</span></a></li><li><a href="/designs/d2/demo/"><img src="/assets/designs/d2.jpg" width="90" height="195" alt="Design 2, Poster: Dark first: one big claim and one big button."><span class="pn">2. Poster</span><span class="pi">Dark first: one big claim and one big button.</span></a></li><li><a href="/designs/d3/demo/"><img src="/assets/designs/d3.jpg" width="90" height="195" alt="Design 3, Atlas: A map of the topic: side navigation, three entry cards."><span class="pn">3. Atlas</span><span class="pi">A map of the topic: side navigation, three entry cards.</span></a></li><li><a href="/designs/d4/demo/" aria-current="page"><img src="/assets/designs/d4.jpg" width="90" height="195" alt="Design 4, Path: A three-step journey drawn as a flow: visitor, Puter, model."><span class="pn">4. Path</span><span class="pi">A three-step journey drawn as a flow: visitor, Puter, model.</span></a></li><li><a href="/designs/d5/demo/"><img src="/assets/designs/d5.jpg" width="90" height="195" alt="Design 5, Console: A status panel first: what runs on load, what is allowed."><span class="pn">5. Console</span><span class="pi">A status panel first: what runs on load, what is allowed.</span></a></li></ul><p><a class="all" href="/designs/">Compare all designs</a></p></div></details>
+<details class="family-credit">
+  <summary>Sovereign Website</summary>
+  <ul>
+    <li><a href="/start/">Start here</a></li>
+    <li><a href="/agents/">Use with your AI</a></li>
+    <li class="family-gap"><a href="/admin/">How this site was made</a></li>
+    <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+    <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+    <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
+    <li><a href="https://hub.sovereignweb.site/">Hub</a></li>
+    <li><a href="https://agents.sovereignweb.site/">Agents</a></li>
+    <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+    <li><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+    <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+    <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+  </ul>
+</details>
+
+<header class="top"><a class="brand" href="/designs/d4/">Puter: LLMs from the browser</a></header><nav class="own" aria-label="This site"><ul><li><a href="/designs/d4/">Home</a></li><li><a href="/designs/d4/guide/">Guide</a></li><li><a href="/designs/d4/demo/" aria-current="page">Demo</a></li><li><a href="/designs/d4/compare/">Compare</a></li><li><a href="/start/">Start here</a></li></ul></nav><aside class="notice" aria-label="About this guide">An independent Sovereign Website guide. Not Puter's site.</aside><main id="main">
+<h1>Demo: ask a model with your own Puter account</h1>
+<p class="lede">This page is inert until you press a button. Nothing is billed to this site. Anything you use is charged to your own Puter allowance.</p>
+<div class="notebox" role="note"><h2 class="h3">Before you start</h2>
+<ul>
+<li>The script is a <strong>third-party script by design</strong>: Puter.js 2.6.5, Puter's own npm package, served from this site as a pinned copy. This page's policy allows scripts from this site only.</li>
+<li>Signing in opens a Puter window (or a tab, depending on your browser). That window is Puter's page, with Puter's own terms. We do not see your password.</li>
+<li>Signing in gives this page a storage folder, a key-value store, AI access and the ability to publish websites on your account (<a href="https://docs.puter.com/security/">Puter docs: Security and Permissions</a>, read 25 November 2026). This demo uses only the AI call and your usage figure.</li>
+<li>Type nothing private. Puter's published privacy policy does not say where AI prompts go.</li>
+<li>The default model is Puter's own default (<a href="https://docs.puter.com/AI/chat/">ai.chat() docs</a>, read 25 November 2026). Your answer will be charged at that model's rate.</li>
+</ul></div>
+<div class="demo" id="demo" data-src="/vendor/puter.js-2.6.5/puter.js" data-integrity="sha384-cxUuIyzn+eZySBzLjYzu2EPLDC3wj9mbKTQdeLvXjlhkpHME6nS7DzYsio5hj6U0" data-state="idle">
+<p class="step"><span class="n">1</span> Load the script.</p>
+<p><button type="button" id="load">Load Puter.js from this site</button></p>
+<p class="step"><span class="n">2</span> Ask. This signs you in with Puter if you are not already.</p>
+<p><label for="prompt">Your question</label><br><textarea id="prompt" rows="3" cols="40" maxlength="500">In one sentence, what is a static web page?</textarea></p>
+<p><label><input type="checkbox" id="guest"> Try a temporary guest account if I have no Puter account</label></p>
+<p><button type="button" id="ask" disabled>Sign in with Puter and ask</button></p>
+<p class="step"><span class="n">3</span> Optional: see your allowance.</p>
+<p><button type="button" id="usage" disabled>Show my monthly usage</button></p>
+<div id="out" role="status" aria-live="polite" tabindex="-1"><p>Waiting. Nothing has run yet.</p></div>
+</div>
+<noscript><p>This demo needs JavaScript. Without it, nothing runs.</p></noscript>
+<h2>What to look for</h2>
+<ul>
+<li>If a pop-up is blocked, press the button again. Pop-ups need a click.</li>
+<li>The usage result is Puter's raw answer. We do not convert its units: Puter's page for it does not give them.</li>
+<li>If you see a <code>402</code> error, your balance may be used up, or several costly requests started together. A <code>429</code> means too many requests in a short time (<a href="https://docs.puter.com/rate-limits-and-quotas/">rate limits</a>).</li>
+</ul>
+</main><footer class="foot"><p class="notice-foot">An independent Sovereign Website guide. Not Puter's site.</p><p>A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__Platform__Puter">github.com/SovereignWebsite/Site__Platform__Puter</a>. <a href="/start/">Start here</a> · <a href="/agents/">Use with your AI</a> · <a href="/admin/">How this site was made</a> · <a href="/policy/">How this site is governed</a></p></footer>
+<script src="/assets/demo.js"></script>
+</body>
+</html>
