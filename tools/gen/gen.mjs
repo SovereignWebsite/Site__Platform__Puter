@@ -13,7 +13,7 @@ const SRI = 'sha384-' + createHash('sha384').update(readFileSync('site/' + VENDO
 const w = (f, s) => { mkdirSync(f.replace(/\/[^/]*$/, ''), { recursive: true }); writeFileSync(f, s); };
 
 export const DESIGNS = [
-  { n: 1, name: 'Ledger', idea: 'A plain, printable document: one column, headings, links.', best: 'Reading and printing; fastest to load.', weak: 'Little pull for a first-time visitor.', dark: 'no' },
+  { n: 1, name: 'Ledger', idea: 'The plain, printable one: a document in one column, with headings and links.', best: 'Reading and printing; fastest to load.', weak: 'Little pull for a first-time visitor.', dark: 'no' },
   { n: 2, name: 'Poster', idea: 'Dark first: one big claim and one big button.', best: 'Getting a visitor to try the demo.', weak: 'Heavy for long reading.', dark: 'yes' },
   { n: 3, name: 'Atlas', idea: 'A map of the topic: side navigation, three entry cards.', best: 'Visitors who know what they want to look up.', weak: 'Busy on a phone.', dark: 'no' },
   { n: 4, name: 'Path', idea: 'A three-step journey drawn as a flow: visitor, Puter, model.', best: 'Explaining who pays, at a glance.', weak: 'Less room for detail on the first screen.', dark: 'no' },
@@ -138,14 +138,15 @@ ${FAMILY}
 <h2 id="dark">The same five in dark</h2>
 <div class="rowbox" tabindex="0" role="region" aria-label="The five first screens in dark mode, scrolls sideways on a phone"><ul class="shots">${rowD}</ul></div>
 <h2>The five at a glance</h2>
+<p class="actnote">On a phone, swipe the table sideways for more columns.</p>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Designs table"><table><caption>Five designs</caption><thead><tr><th scope="col">Design</th><th scope="col">Idea</th><th scope="col">Best for</th><th scope="col">Weakest at</th><th scope="col">Dark first</th></tr></thead><tbody>${rows}</tbody></table></div>
 <h2>Who recommends what</h2>
-<p>Keeper (puter.a), round 1: design 4, Path. It answers the question a visitor arrives with, "who pays?", before any text, and keeps the single action on the first screen. a.design (round 1, 25 November 2026) agrees: design 4, Path.</p>
+<p>Keeper (puter.a), round 1: design 4, Path. It answers the question a visitor arrives with, "who pays?", before any text, and keeps the single action on the first screen. a.design (rounds 1 and 2, 25 November 2026) agrees: design 4, Path, ready for the owner to pick.</p>
 <h2>How to choose</h2>
 <ol><li>Does the first screen on a phone say what this site is for?</li><li>Can you reach the demo without hunting?</li><li>Would the owner say "wow"?</li></ol>
 <p>Then say which number to keep.</p>
 <h2>Rounds</h2>
-<p><strong>Round 2, ${READ}:</strong> after a.design's round 1 review. Path's drawing labels are now 14 px. Atlas shows one row of navigation. Console shows its facts panel first. Poster is dark in both modes. Console's status band stays dark. A dark row of the five is above.</p>
+<p><strong>Round 3 (small), ${READ}:</strong> after a.design's round 2, which verified all five fixes and recommends design 4. Ledger is labelled as the plain, printable one, and the table has a swipe cue.</p>\n<p><strong>Round 2, ${READ}:</strong> after a.design's round 1 review. Path's drawing labels are now 14 px. Atlas shows one row of navigation. Console shows its facts panel first. Poster is dark in both modes. Console's status band stays dark. A dark row of the five is above.</p>
 <p><strong>Round 1, ${READ}:</strong> five directions built, all four pages in each. Reviewed by a.design, who recommended design 4 and listed five fixes (above).</p>
 </main>${FOOT('')}
 </body>
